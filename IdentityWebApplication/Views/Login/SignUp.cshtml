@@ -1,4 +1,4 @@
-﻿
+﻿@model IdentityWebApplication.Models.UserRegisterViewModel
 @{
     Layout = null;
 }
@@ -32,16 +32,17 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
-                    <img src="~/Register_v1/images/img-01.png" alt="IMG">
+                    <img src="~/Register_v1/images/DOZO.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form">
+            <form method="post" class="login100-form validate-form">
                 <span class="login100-form-title">
                     Register
                 </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Firstname is required">
-                    <input class="input100" type="text" name="firstname" placeholder="Firstname">
+                    <input class="input100" type="text" asp-for="Name" placeholder="Firstname">
+                    <span asp-validation-for="Name" class="text-danger"></span>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -49,23 +50,26 @@
                 </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Lastname is required">
-                        <input class="input100" type="text" name="lastname" placeholder="Lastname">
+                        <input class="input100" type="text" asp-for="Surname" placeholder="Lastname">
+                        <span asp-validation-for="Surname" class="text-danger"></span>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
                     </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Phone Number is required">
-                    <input class="input100" type="text" name="phone" placeholder="Phone Number">
+                    <div class="wrap-input100 validate-input" data-validate="Username is required">
+                        <input class="input100" type="text" asp-for="Username" placeholder="Username">
+                        <span asp-validation-for="Username" class="text-danger"></span>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                        <input class="input100" type="email" asp-for="Mail" placeholder="Email">
+                        <span asp-validation-for="Mail" class="text-danger"></span>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -73,7 +77,8 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" asp-for="Password" placeholder="Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -81,7 +86,8 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Confirm Password is required">
-                    <input class="input100" type="password" name="confirm_pass" placeholder="Confirm Password">
+                        <input class="input100" type="password" asp-for="ConfirmPassword" placeholder="ConfirmPassword">
+                        
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -92,6 +98,8 @@
                     <button class="login100-form-btn">
                         Register
                     </button>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 </div>
 
                 <div class="text-center p-t-136">
